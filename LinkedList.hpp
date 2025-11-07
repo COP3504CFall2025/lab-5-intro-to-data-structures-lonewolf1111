@@ -196,13 +196,11 @@ bool LinkedList<T>::RemoveHead() {
 	} else {
 		head = nullptr;
 		tail = nullptr;
-		delete temp;
-		count --;
-		return false;
 	}
 	delete temp;
-
 	count --;
+	if(head == nullptr) return false;
+
 	return true;
 	
 }
@@ -221,6 +219,8 @@ bool LinkedList<T>::RemoveTail() {
 	
 	delete temp;
 	count --;
+	if(head == nullptr) return false;
+
 	return true;
 }
 
