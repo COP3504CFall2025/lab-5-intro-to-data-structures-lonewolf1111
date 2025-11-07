@@ -32,9 +32,9 @@ public:
 // --------------------------Some code implementation here -----------------------------
 template <typename T>
 T LLS<T>::pop() {
-    if(list.getHead() = nullptr) {
-        throw std::runtime_error("empty list");
-    }
+    // if(list.getHead() = nullptr) {
+    //     throw std::runtime_error("empty list");
+    // }
     T temp = list.getHead()->data;
     list.RemoveHead();
     return temp;
@@ -42,8 +42,8 @@ T LLS<T>::pop() {
 
 template <typename T>
 T LLS<T>::peek() const  {
-     if(list.getHead() = nullptr) {
-        throw std::runtime_error("empty list");
-    }
+    //  if(list.getHead() = nullptr) {
+    //     throw std::runtime_error("empty list");
+    // }
     return list.getHead()->data;
 }
