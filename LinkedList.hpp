@@ -5,7 +5,20 @@ using namespace std;
 
 template <typename T>
 class LinkedList {
+private:
+	// Stores pointers to first and last nodes and count
+	struct Node {
+		T data;
+		Node* prev;
+		Node* next;
+	};
+	
+	Node* head;
+	Node* tail;
+	unsigned int count;
+
 public:
+
 	// Behaviors
 	void printForward() const;
 	void PrintReverse() const;
@@ -35,17 +48,6 @@ public:
 	LinkedList(const LinkedList<T>& list);
 	LinkedList(LinkedList<T>&& other) noexcept;
 	virtual ~LinkedList();
-
-private:
-	// Stores pointers to first and last nodes and count
-	struct Node {
-		T data;
-		Node* prev;
-		Node* next;
-	};
-	Node* head;
-	Node* tail;
-	unsigned int count;
 
 };
 
