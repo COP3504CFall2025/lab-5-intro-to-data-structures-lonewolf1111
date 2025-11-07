@@ -196,6 +196,9 @@ bool LinkedList<T>::RemoveHead() {
 	} else {
 		head = nullptr;
 		tail = nullptr;
+		delete temp;
+		count --;
+		return false;
 	}
 	delete temp;
 
@@ -213,6 +216,7 @@ bool LinkedList<T>::RemoveTail() {
 		tail->next = nullptr;
 	} else {
 		head = nullptr;
+		tail = nullptr;
 	}
 	
 	delete temp;
