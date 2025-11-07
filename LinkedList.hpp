@@ -163,7 +163,7 @@ void LinkedList<T>::printReverse() const {
 
 template <typename T>
 void LinkedList<T>::addHead(const T& data) {
-	Node* newHead = new Node{data, nullptr, head}
+	Node* newHead = new Node{data, nullptr, head};
 	if( head != nullptr) {
 		head->prev = newHead;
 	} else {
@@ -225,5 +225,5 @@ bool LinkedList<T>::removeTail() {
 //use your helper functions lmao
 template <typename T>
 void LinkedList<T>::clear() {
-	while(RemoveHead());
+	while(removeHead());
 }
