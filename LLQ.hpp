@@ -20,7 +20,7 @@ public:
     T dequeue() override;
 
     // Access
-    T peek() const override {return list.getHead()};
+    T peek() const override {return list.getHead()->data;}
 
     // Getter
     std::size_t getSize() const noexcept override {return list.getCount();}

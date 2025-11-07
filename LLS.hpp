@@ -20,7 +20,7 @@ public:
     T pop() override;
 
     // Access
-    T peek() const override {return list.getHead();}
+    T peek() const override {return list.getHead()->data;}
 
     //Getters
     std::size_t getSize() const noexcept override {return list.getCount();}
