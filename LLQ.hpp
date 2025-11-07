@@ -43,7 +43,7 @@ T LLQ<T>::dequeue() {
 
 template <typename T>
 T LLQ<T>::peek() const {
-    if(!list.getTail()) {
+    if(!list.getHead()) {
         throw std::runtime_error("empty list");
     }
     return list.getHead()->data;
