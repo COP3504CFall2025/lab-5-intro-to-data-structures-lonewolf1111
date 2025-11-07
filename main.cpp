@@ -21,9 +21,11 @@
 int main() {
 
     LinkedList<int> x;
-    x.AddHead(30);
+    x.addTail(20);
+    x.addTail(30);
     LinkedList<int> g(x);
-    std::cout << g.getTail()->data << std::endl;
+    std::cout << "bruzzo "<< g.getTail()->data << std::endl;
+    x.printForward();
     return 0;
 }
 

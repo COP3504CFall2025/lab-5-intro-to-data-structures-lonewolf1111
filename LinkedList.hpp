@@ -73,7 +73,7 @@ LinkedList<T>::LinkedList(const LinkedList<T>& list) {
 	Node* temp = head;
 	Node* tempList = list.head;
 	while (tempList->next != nullptr) {
-		Node* nextNode = new Node{tempList->data, temp, nullptr};
+		Node* nextNode = new Node{tempList->next->data, temp, nullptr};
 		temp->next = nextNode;
 
 		temp = nextNode;
@@ -182,6 +182,7 @@ void LinkedList<T>::addTail(const T& data) {
 	} else {
 		head = newTail;
 	}
+	if(head == nullptr) head = newTail;
 	tail = newTail;
 	count++;
 }
