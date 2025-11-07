@@ -25,8 +25,8 @@ public:
     // Getter
     std::size_t getSize() const noexcept override {return list.getCount();}
 
-    void printForward() {list.PrintForward();}
-    void printReverse() {list.PrintReverse();}
+    void PrintForward() {list.PrintForward();}
+    void PrintReverse() {list.PrintReverse();}
 
 
 };
@@ -34,6 +34,6 @@ public:
 template <typename T>
 T LLQ<T>::dequeue() {
     T temp = list.getTail();
-    list.removeTail();
+    list.RemoveTail();
     return temp;
 }
