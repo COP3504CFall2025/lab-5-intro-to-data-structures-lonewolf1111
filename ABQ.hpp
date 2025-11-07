@@ -26,9 +26,9 @@ public:
     ~ABQ() noexcept override;
 
     // Getters
-    [[nodiscard]] size_t getSize() const noexcept override;
-    [[nodiscard]] size_t getMaxCapacity() const noexcept;
-    [[nodiscard]] T* getData() const noexcept;
+    [[nodiscard]] size_t getSize() const noexcept override {return curr_size_;}
+    [[nodiscard]] size_t getMaxCapacity() const noexcept {return capacity_;}
+    [[nodiscard]] T* getData() const noexcept {return array_;}
 
     // Insertion
     void enqueue(const T& data) override;
@@ -40,3 +40,8 @@ public:
     T dequeue() override;
 
 };
+
+// ------------------------------------ Code implementation ------------------------------
+
+//shrink if needed
+//throw exceptions
