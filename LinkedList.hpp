@@ -61,7 +61,6 @@ LinkedList<T>::LinkedList() {
 
 template <typename T>
 LinkedList<T>::LinkedList(const LinkedList<T>& list) {
-	if(!list.head) return;
 	head = new Node<T>(list.head->data,nullptr,nullptr);
 	Node<T>* temp = head;
 	Node<T>* tempList = list.head;
