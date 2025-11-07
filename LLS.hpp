@@ -32,7 +32,7 @@ public:
 // --------------------------Some code implementation here -----------------------------
 template <typename T>
 T LLS<T>::pop() {
-    T temp = list.getHead();
+    T temp = list.getHead()->data;
     list.RemoveHead();
-    return temp->data;
+    return temp;
 }
