@@ -42,7 +42,7 @@ public:
 
 template <typename T>
 T LLDQ<T>::popFront() {
-    if(list.getHead() = nullptr) {
+    if(!list.getHead()) {
         throw std::runtime_error("empty list");
     }
     T temp = front();
@@ -52,7 +52,7 @@ T LLDQ<T>::popFront() {
 
 template <typename T>
 T LLDQ<T>::popBack() {
-    if(list.getHead() = nullptr) {
+    if(!list.getHead()) {
         throw std::runtime_error("empty list");
     }
     T temp = back();
@@ -62,7 +62,7 @@ T LLDQ<T>::popBack() {
 
 template <typename T>
 const T& LLDQ<T>::front() const {
-    if(list.getHead() = nullptr) {
+    if(!list.getHead()) {
         throw std::runtime_error("empty list");
     }
     return list.getHead()->data;
@@ -71,7 +71,7 @@ const T& LLDQ<T>::front() const {
 
 template <typename T>
 const T& LLDQ<T>::back() const {
-    if(list.getTail() = nullptr) {
+    if(!list.getTail()) {
         throw std::runtime_error("empty list");
     }
     return list.getTail()->data;
