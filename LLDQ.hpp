@@ -18,8 +18,8 @@ public:
     LLDQ() = default;
 
     // Core Insertion Operations
-    void pushFront(const T& item) override {list.addHead(item);}
-    void pushBack(const T& item) override {list.addTail(item);}
+    void pushFront(const T& item) override {list.AddHead(item);}
+    void pushBack(const T& item) override {list.AddTail(item);}
 
     // Core Removal Operations
     T popFront() override;
@@ -40,13 +40,13 @@ public:
 template <typename T>
 T LLDQ<T>::popFront() {
     T temp = front();
-    list.removeHead();
+    list.RemoveHead();
     return temp;
 }
 
 template <typename T>
 T LLDQ<T>::popBack() {
     T temp = back();
-    list.removeTail();
+    list.RemoveTail();
     return temp;
 }

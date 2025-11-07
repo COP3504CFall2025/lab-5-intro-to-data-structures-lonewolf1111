@@ -215,5 +215,5 @@ bool LinkedList<T>::RemoveTail() {
 //use your helper functions lmao
 template <typename T>
 void LinkedList<T>::Clear() {
-	while(removeHead());
+	while(RemoveHead());
 }

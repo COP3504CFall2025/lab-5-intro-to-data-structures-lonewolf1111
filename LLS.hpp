@@ -14,7 +14,7 @@ public:
     LLS() = default;
 
     // Insertion
-    void push(const T& item) override {list.addHead(item);}
+    void push(const T& item) override {list.AddHead(item);}
 
     // Deletion
     T pop() override;
@@ -25,14 +25,14 @@ public:
     //Getters
     std::size_t getSize() const noexcept override {return list.getCount();}
 
-    void printForward() {list.printForward();}
-    void printReverse() {list.printReverse();}
+    void printForward() {list.PrintForward();}
+    void printReverse() {list.PrintReverse();}
 };
 
 // --------------------------Some code implementation here -----------------------------
 template <typename T>
 T LLS<T>::pop() {
     T temp = list.getHead();
-    list.removeHead();
+    list.RemoveHead();
     return temp;
 }
