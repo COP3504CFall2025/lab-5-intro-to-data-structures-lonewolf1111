@@ -32,11 +32,11 @@ public:
 // -------------------------------------------Code implementation --------------------------------------
 template <typename T>
 T LLQ<T>::dequeue() {
-    if(!list.getTail()) {
+    if(!list.getHead()) {
         throw std::runtime_error("empty list");
     }
-    T temp = list.getTail()->data;
-    list.removeTail();
+    T temp = list.getHead()->data;
+    list.removeHead();
     return temp;
 }
 
