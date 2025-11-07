@@ -34,5 +34,5 @@ template <typename T>
 T LLS<T>::pop() {
     T temp = list.getHead()->data;
     list.RemoveHead();
-    return temp-;
+    return temp;
 }
