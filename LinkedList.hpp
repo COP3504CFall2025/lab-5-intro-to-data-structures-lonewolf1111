@@ -13,8 +13,8 @@ template <typename T>
 class LinkedList {
 public:
 	// Behaviors
-	void printForward() const;
-	void printReverse() const;
+	void PrintForward() const;
+	void PrintReverse() const;
 
 	// Accessors
 	[[nodiscard]] unsigned int getCount() const {return count;}
@@ -24,12 +24,12 @@ public:
 	const Node<T>* getTail() const {return tail;}
 
 	// Insertion
-	void addHead(const T& data);
-	void addTail(const T& data);
+	void AddHead(const T& data);
+	void AddTail(const T& data);
 
 	// Removal
-	bool removeHead();
-	bool removeTail();
+	bool RemoveHead();
+	bool RemoveTail();
 	void Clear();
 
 	// Operators
@@ -137,7 +137,7 @@ LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>&& other) noexcept{
 }
 
 template <typename T>
-void LinkedList<T>::printForward() const {
+void LinkedList<T>::PrintForward() const {
 	Node<T>* temp = head;
 	while(temp != nullptr) {
 		std::cout << temp->data << std::endl;
@@ -146,7 +146,7 @@ void LinkedList<T>::printForward() const {
 }
 
 template <typename T>
-void LinkedList<T>::printReverse() const {
+void LinkedList<T>::PrintReverse() const {
 	Node<T>* temp = tail;
 	while(temp != nullptr) {
 		std::cout << temp->data << std::endl;
@@ -155,7 +155,7 @@ void LinkedList<T>::printReverse() const {
 }
 
 template <typename T>
-void LinkedList<T>::addHead(const T& data) {
+void LinkedList<T>::AddHead(const T& data) {
 	Node<T>* newHead = new Node(data, nullptr, head);
 	if( head != nullptr) {
 		head->prev = newHead;
@@ -167,7 +167,7 @@ void LinkedList<T>::addHead(const T& data) {
 }
 
 template <typename T>
-void LinkedList<T>::addTail(const T& data) {
+void LinkedList<T>::AddTail(const T& data) {
 	Node<T>* newTail = new Node(data, tail, nullptr);
 
 	if(tail != nullptr) {
@@ -180,7 +180,7 @@ void LinkedList<T>::addTail(const T& data) {
 }
 
 template <typename T>
-bool LinkedList<T>::removeHead() {
+bool LinkedList<T>::RemoveHead() {
 	if(head == nullptr) return false;
 	Node<T>* temp = head;
 	if(head-> next != nullptr) {
@@ -197,7 +197,7 @@ bool LinkedList<T>::removeHead() {
 }
 
 template <typename T>
-bool LinkedList<T>::removeTail() {
+bool LinkedList<T>::RemoveTail() {
 	if(tail == nullptr) return false;
 	Node<T>* temp = tail;
 	if(tail->prev != nullptr) {

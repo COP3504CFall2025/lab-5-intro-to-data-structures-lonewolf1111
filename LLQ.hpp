@@ -23,10 +23,10 @@ public:
     T peek() const override {return list.getHead()};
 
     // Getter
-    std::size_t getSize() const noexcept override {return list.getCount()};
+    std::size_t getSize() const noexcept override {return list.getCount();}
 
-    void printForward() {list.printForward()};
-    void printReverse() {list.printReverse()};
+    void printForward() {list.printForward();}
+    void printReverse() {list.printReverse();}
 
 
 };
