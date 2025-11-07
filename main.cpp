@@ -1,4 +1,4 @@
-#ifdef MAIN
+#pragma once
 
 // #include "ABDQ.hpp"
 // #include "ABQ.hpp"
@@ -25,4 +25,3 @@ int main() {
 }
 
 
-#endif
