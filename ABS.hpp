@@ -17,7 +17,7 @@ public:
     ABS& operator=(const ABS& rhs);
     ABS(ABS&& other) noexcept;
     ABS& operator=(ABS&& rhs) noexcept;
-    ~ABS() noexcept override;
+    ~ABS() noexcept;
 
     // Get the number of items in the ABS
     [[nodiscard]] size_t getSize() const noexcept override {return curr_size_;}
