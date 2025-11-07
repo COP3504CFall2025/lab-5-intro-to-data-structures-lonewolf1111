@@ -35,5 +35,5 @@ template <typename T>
 T LLQ<T>::dequeue() {
     T temp = list.getTail();
     list.RemoveTail();
-    return temp;
+    return temp->data;
 }

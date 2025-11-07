@@ -13,7 +13,7 @@ template <typename T>
 class LinkedList {
 public:
 	// Behaviors
-	void PrintForward() const;
+	void printForward() const;
 	void PrintReverse() const;
 
 	// Accessors
@@ -137,7 +137,7 @@ LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>&& other) noexcept{
 }
 
 template <typename T>
-void LinkedList<T>::PrintForward() const {
+void LinkedList<T>::printForward() const {
 	Node<T>* temp = head;
 	while(temp != nullptr) {
 		std::cout << temp->data << std::endl;

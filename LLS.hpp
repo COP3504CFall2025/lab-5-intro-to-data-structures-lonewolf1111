@@ -25,7 +25,7 @@ public:
     //Getters
     std::size_t getSize() const noexcept override {return list.getCount();}
 
-    void PrintForward() {list.PrintForward();}
+    void PrintForward() {list.printForward();}
     void PrintReverse() {list.PrintReverse();}
 };
 
@@ -34,5 +34,5 @@ template <typename T>
 T LLS<T>::pop() {
     T temp = list.getHead();
     list.RemoveHead();
-    return temp;
+    return temp->data;
 }
