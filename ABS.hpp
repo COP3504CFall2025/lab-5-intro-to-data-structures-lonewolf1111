@@ -46,9 +46,9 @@ private:
 // ---------------------------------Implementation here-------------------------------------------------------
 template <typename T>
 ABS<T>::ABS() {
-    capacity_ = 0;
+    capacity_ = 1;
     curr_size_ = 0;
-    array_ = nullptr;
+    array_ = new T[capacity_];
 }
 
 template <typename T>
@@ -140,5 +140,6 @@ T ABS<T>::pop() {
 template <typename T> 
 T ABS<T>::peek() const {
     if (curr_size_ == 0) throw std::out_of_range("Empty Stack");
-    return array_[0];
+    size_t sizes = curr_size_-1;
+    return array_[sizes];
 }
