@@ -34,7 +34,7 @@ public:
 template <typename T>
 T LLQ<T>::dequeue() {
     if(list.getTail() = nullptr) {
-        throw std::runtime_error();
+        throw std::runtime_error("empty list");
     }
     T temp = list.getTail()->data;
     list.RemoveTail();
@@ -43,7 +43,7 @@ T LLQ<T>::dequeue() {
 template <typename T>
 T LLQ<T>::peek() const  {
      if(list.getHead() = nullptr) {
-        throw std::runtime_error();
+        throw std::runtime_error("empty list");
     }
     return list.getHead()->data;
 }
