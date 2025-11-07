@@ -20,7 +20,7 @@ public:
     T dequeue() override;
 
     // Access
-    T peek() const override;
+    T peek() const override {  return list.getHead()->data;};
 
     // Getter
     std::size_t getSize() const noexcept override {return list.getCount();}
@@ -33,17 +33,10 @@ public:
 // -------------------------------------------Code implementation --------------------------------------
 template <typename T>
 T LLQ<T>::dequeue() {
-    // if(list.getTail() = nullptr) {
-    //     throw std::runtime_error("empty list");
-    // }
+    if(list.getTail() = nullptr) {
+        throw std::runtime_error("empty list");
+    }
     T temp = list.getTail()->data;
     list.RemoveTail();
     return temp;
-}
-template <typename T>
-T LLQ<T>::peek() const  {
-    //  if(list.getHead() = nullptr) {
-    //     throw std::runtime_error("empty list");
-    // }
-    return list.getHead()->data;
 }

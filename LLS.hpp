@@ -20,7 +20,7 @@ public:
     T pop() override;
 
     // Access
-    T peek() const override;
+    T peek() const override {return list.getHead()->data;}
 
     //Getters
     std::size_t getSize() const noexcept override {return list.getCount();}
@@ -32,18 +32,7 @@ public:
 // --------------------------Some code implementation here -----------------------------
 template <typename T>
 T LLS<T>::pop() {
-    // if(list.getHead() = nullptr) {
-    //     throw std::runtime_error("empty list");
-    // }
     T temp = list.getHead()->data;
     list.RemoveHead();
-    return temp;
-}
-
-template <typename T>
-T LLS<T>::peek() const  {
-    //  if(list.getHead() = nullptr) {
-    //     throw std::runtime_error("empty list");
-    // }
-    return list.getHead()->data;
+    return temp-;
 }
