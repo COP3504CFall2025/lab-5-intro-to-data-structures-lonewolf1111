@@ -1,42 +1,42 @@
-#pragma once
+// #pragma once
 
-#include "Interfaces.hpp"
-#include "LinkedList.hpp"
-#include <stdlib.h>
-#include <stdexcept>
+// #include "Interfaces.hpp"
+// #include "LinkedList.hpp"
+// #include <stdlib.h>
+// #include <stdexcept>
 
-template <typename T>
-class LLQ : public QueueInterface<T> {
-private:
-    LinkedList<T> list;
-public:
-    // Constructor
-    LLQ() = default;
+// template <typename T>
+// class LLQ : public QueueInterface<T> {
+// private:
+//     LinkedList<T> list;
+// public:
+//     // Constructor
+//     LLQ() = default;
 
-    // Insertion
-    void enqueue(const T& item) override {list.AddTail(item);} 
+//     // Insertion
+//     void enqueue(const T& item) override {list.AddTail(item);} 
 
-    // Deletion
-    T dequeue() override;
+//     // Deletion
+//     T dequeue() override;
 
-    // Access
-    T peek() const override {  return list.getHead()->data;};
+//     // Access
+//     T peek() const override {  return list.getHead()->data;};
 
-    // Getter
-    std::size_t getSize() const noexcept override {return list.getCount();}
+//     // Getter
+//     std::size_t getSize() const noexcept override {return list.getCount();}
 
-    void PrintForward() {list.printForward();}
-    void PrintReverse() {list.PrintReverse();}
+//     void PrintForward() {list.printForward();}
+//     void PrintReverse() {list.PrintReverse();}
 
 
-};
-// -------------------------------------------Code implementation --------------------------------------
-template <typename T>
-T LLQ<T>::dequeue() {
-    if(list.getTail() = nullptr) {
-        throw std::runtime_error("empty list");
-    }
-    T temp = list.getTail()->data;
-    list.RemoveTail();
-    return temp;
-}
+// };
+// // -------------------------------------------Code implementation --------------------------------------
+// template <typename T>
+// T LLQ<T>::dequeue() {
+//     if(list.getTail() = nullptr) {
+//         throw std::runtime_error("empty list");
+//     }
+//     T temp = list.getTail()->data;
+//     list.RemoveTail();
+//     return temp;
+// }
