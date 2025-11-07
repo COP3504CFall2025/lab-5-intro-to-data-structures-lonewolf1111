@@ -3,7 +3,7 @@
 // #include "ABDQ.hpp"
 // #include "ABQ.hpp"
 // #include "ABS.hpp"
-#include "Interfaces.hpp"
+// #include "Interfaces.hpp"
 #include "LinkedList.hpp"
 // #include "LLDQ.hpp"
 // #include "LLQ.hpp"
@@ -20,7 +20,10 @@
 
 int main() {
 
-
+    LinkedList<int> x;
+    x.AddHead(30);
+    LinkedList<int> g(x);
+    std::cout << g.getTail()->data << std::endl;
     return 0;
 }
 
