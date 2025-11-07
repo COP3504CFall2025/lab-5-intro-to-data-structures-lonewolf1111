@@ -1,8 +1,8 @@
-#pragma once
+#ifdef MAIN
 
-// #include "ABDQ.hpp"
-// #include "ABQ.hpp"
-// #include "ABS.hpp"
+#include "ABDQ.hpp"
+#include "ABQ.hpp"
+#include "ABS.hpp"
 #include "Interfaces.hpp"
 #include "LinkedList.hpp"
 #include "LLDQ.hpp"
@@ -25,3 +25,4 @@ int main() {
 }
 
 
+#endif
