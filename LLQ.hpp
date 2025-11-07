@@ -14,7 +14,7 @@ public:
     LLQ() = default;
 
     // Insertion
-    void enqueue(const T& item) override {list.AddTail(item);} 
+    void enqueue(const T& item) override {list.addTail(item);} 
 
     // Deletion
     T dequeue() override;
