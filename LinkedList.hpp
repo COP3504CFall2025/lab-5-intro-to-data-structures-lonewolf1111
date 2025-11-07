@@ -62,11 +62,11 @@ LinkedList<T>::LinkedList() {
 template <typename T>
 LinkedList<T>::LinkedList(const LinkedList<T>& list) {
 	if(!list.head) return;
-	head = new Node(list.head->data,nullptr,nullptr);
+	head = new Node<T>(list.head->data,nullptr,nullptr);
 	Node<T>* temp = head;
 	Node<T>* tempList = list.head;
 	while (tempList->next != nullptr) {
-		Node<T>* nextNode = new Node(tempList->data, temp, nullptr);
+		Node<T>* nextNode = new Node<T>(tempList->data, temp, nullptr);
 		temp->next = nextNode;
 
 		temp = nextNode;
@@ -90,12 +90,12 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& rhs) {
         return *this;
     }
 
-	head = new Node(rhs.head->data,nullptr,nullptr);
+	head = new Node<T>(rhs.head->data,nullptr,nullptr);
 	
 	Node<T>* temp = head;
 	Node<T>* tempList = rhs.head->next;
 	while(tempList != nullptr) {
-		Node<T>* nextNode = new Node(tempList->data, temp, nullptr);
+		Node<T>* nextNode = new Node<T>(tempList->data, temp, nullptr);
 		temp->next = nextNode;
 
 		temp = nextNode;
@@ -156,7 +156,7 @@ void LinkedList<T>::PrintReverse() const {
 
 template <typename T>
 void LinkedList<T>::AddHead(const T& data) {
-	Node<T>* newHead = new Node(data, nullptr, head);
+	Node<T>* newHead = new Node<T>(data, nullptr, head);
 	if( head != nullptr) {
 		head->prev = newHead;
 	} else {
@@ -168,7 +168,7 @@ void LinkedList<T>::AddHead(const T& data) {
 
 template <typename T>
 void LinkedList<T>::AddTail(const T& data) {
-	Node<T>* newTail = new Node(data, tail, nullptr);
+	Node<T>* newTail = new Node<T>(data, tail, nullptr);
 
 	if(tail != nullptr) {
 		tail -> next = newTail;
