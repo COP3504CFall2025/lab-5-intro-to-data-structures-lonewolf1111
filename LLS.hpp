@@ -27,6 +27,8 @@ public:
 
     void PrintForward() {list.printForward();}
     void PrintReverse() {list.printReverse();}
+
+    ~LLS() override = default;
 };
 
 // --------------------------Some code implementation here -----------------------------
