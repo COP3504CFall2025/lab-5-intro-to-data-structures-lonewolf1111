@@ -132,7 +132,17 @@ void ABS<T>::push(const T& data) {
 template <typename T>
 T ABS<T>::pop() {
     if(curr_size_ == 0) throw std::runtime_error("Empty Stack");
-    
+    if(curr_size_ * scale_factor_ == capacity_) {
+        capacity_ /= scale_factor_;
+        T* resizedArray = new T[capacity_];
+        for(size_t i = 0; i < curr_size_; i ++) {
+            resizedArray[i] = array_[i];
+        }
+        
+        delete[] array_;
+        array_ = resizedArray;
+        resizedArray = nullptr;
+    }
     T temp = array_[--curr_size_];
     return temp;
 }
