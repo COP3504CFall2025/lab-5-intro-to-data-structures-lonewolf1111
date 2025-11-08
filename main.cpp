@@ -24,7 +24,8 @@ int main() {
     x.enqueue(20);
     x.enqueue(30);
     x.enqueue(30);
-
+    x.dequeue();
+    x.dequeue();
     std::cout << "bruzzo "<< x.getMaxCapacity() << std::endl;
     return 0;
 }
