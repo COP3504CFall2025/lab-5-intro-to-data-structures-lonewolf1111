@@ -89,9 +89,8 @@ T ABQ<T>::dequeue() {
     if(curr_size_ == 0) throw std::runtime_error("empty queue");
     
     T temp = array_[0];
-    curr_size_--;
 
-    for(size_t i = 0; i < curr_size_; i ++) {
+    for(size_t i = 0; i < curr_size_-1; i ++) {
         array_[i] = array_[i+1];
     }
 
@@ -106,6 +105,7 @@ T ABQ<T>::dequeue() {
         array_ = resizedArray;
         resizedArray = nullptr;
     }
+    curr_size_--;
     return temp;
 }
 

@@ -124,6 +124,7 @@ void ABS<T>::push(const T& data) {
         delete[] array_;
         array_ = resizedArray;
         resizedArray = nullptr;
+        
     }
     array_[curr_size_] = data;
     curr_size_ ++;
