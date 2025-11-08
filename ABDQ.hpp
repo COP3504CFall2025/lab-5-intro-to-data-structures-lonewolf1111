@@ -42,3 +42,22 @@
 //     std::size_t getSize() const noexcept override;
 
 // };
+
+// template <typename T>
+// ABDQ<T>::ABDQ() {
+//     capacity_ = 4;
+//     size_ = 0;
+//     front_ = 0;
+//     back_ = 0;
+//     data_ = new T[capacity_];
+// }
+
+
+// template <typename T>
+// ABDQ<T>::ABDQ(std::size_t capacity) {
+//     capacity_ = capacity;
+//     size_ = 0;
+//     front_ = 0;
+//     back_ = 0;
+//     data_ = new T[capacity_];
+// }

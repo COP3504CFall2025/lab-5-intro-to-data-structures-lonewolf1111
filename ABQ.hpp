@@ -68,16 +68,16 @@ T ABQ<T>::peek() const  {
 
 template <typename T>
 void ABQ<T>::enqueue(const T& data) {
-    if(curr_size_ == capacity_) {
-        capacity_ *= scale_factor_;
-        T* temp = new T[capacity_];
-        for (size_t i = 0; i < curr_size_; i ++) {
-            temp[i] = array_[i];
-        }
-        delete[] array_;
-        array_ = temp;
-        temp = nullptr;
-    }
+    // if(curr_size_ == capacity_) {
+    //     capacity_ *= scale_factor_;
+    //     T* temp = new T[capacity_];
+    //     for (size_t i = 0; i < curr_size_; i ++) {
+    //         temp[i] = array_[i];
+    //     }
+    //     delete[] array_;
+    //     array_ = temp;
+    //     temp = nullptr;
+    // }
     
     array_[curr_size_++] = data;
 }
@@ -86,20 +86,20 @@ template <typename T>
 T ABQ<T>::dequeue() {
     if(curr_size_ == 0) throw std::runtime_error("empty queue");
     T temp = array_[0];
-    if(curr_size_ * scale_factor_ == capacity_) {
-        capacity_ /= scale_factor_;
-        T* resizedArray = new T[capacity_];
+    // if(curr_size_ * scale_factor_ == capacity_) {
+    //     capacity_ /= scale_factor_;
+    //     T* resizedArray = new T[capacity_];
+    //     for(size_t i = 0; i < curr_size_-1; i ++) {
+    //         resizedArray[i] = array_[i + 1];
+    //     }
+    //     delete[] array_;
+    //     array_ = resizedArray;
+    //     resizedArray = nullptr;
+    // } else {
         for(size_t i = 0; i < curr_size_-1; i ++) {
-            resizedArray[i] = array_[i + 1];
-        }
-        delete[] array_;
-        array_ = resizedArray;
-        resizedArray = nullptr;
-    } else {
-        for(int i = 0; i < curr_size_-1; i ++) {
             array_[i] = array_[i+1];
         }
-    }
+    // }
     curr_size_--;
     return temp;
 }
