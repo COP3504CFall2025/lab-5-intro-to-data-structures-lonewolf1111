@@ -133,7 +133,6 @@ ABQ<T>& ABQ<T>::operator=(const ABQ<T>& rhs) {
 
 template <typename T>
 ABQ<T>::ABQ(ABQ<T>&& other) noexcept : capacity_(other.capacity_), curr_size_(other.curr_size_), array_(other.array_) {  
-    delete[] other.array_;
     other.array_ = nullptr;
     other.capacity_ = 0;
     other.curr_size_ = 0;
@@ -146,7 +145,6 @@ ABQ<T>& ABQ<T>::operator=(ABQ<T>&& rhs) noexcept {
     capacity_ = rhs.capacity_;
     curr_size_ = rhs.curr_size_;
 
-    delete[] rhs.array_;
     rhs.array_ = nullptr;
     rhs.capacity_ = 0;
     rhs.curr_size_ = 0;
