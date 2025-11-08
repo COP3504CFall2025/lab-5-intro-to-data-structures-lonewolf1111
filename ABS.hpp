@@ -131,7 +131,7 @@ void ABS<T>::push(const T& data) {
 
 template <typename T>
 T ABS<T>::pop() {
-    // if(curr_size_ == 0) throw std::out_of_range("Empty Stack");
+    if(curr_size_ == 0) throw std::out_of_range("Empty Stack");
     
     T temp = array_[--curr_size_];
     return temp;
@@ -139,7 +139,7 @@ T ABS<T>::pop() {
 
 template <typename T> 
 T ABS<T>::peek() const {
-    // if (curr_size_ == 0) throw std::out_of_range("Empty Stack");
+    if (curr_size_ == 0) throw std::out_of_range("Empty Stack");
     size_t sizes = curr_size_-1;
     return array_[sizes];
 }

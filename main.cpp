@@ -20,12 +20,11 @@
 
 int main() {
 
-    LinkedList<int> x;
-    x.addTail(20);
-    x.addTail(30);
-    LinkedList<int> g(x);
-    std::cout << "bruzzo "<< g.getTail()->data << std::endl;
-    x.printForward();
+    ABS<int> x;
+    x.push(20);
+    x.push(30);
+    ABS<int> g = std::move(x);
+    std::cout << "bruzzo "<< g.peek() << std::endl;
     return 0;
 }
 
