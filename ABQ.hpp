@@ -110,7 +110,7 @@ T ABQ<T>::dequeue() {
 
 //-----------------big 5---------------
 template <typename T>
-ABQ<T>::ABQ(const ABQ<T>& other) : capacity_(other.capacity_),curr_size_(other.curr_size_), array_(new T[other.curr_size_]){
+ABQ<T>::ABQ(const ABQ<T>& other) : capacity_(other.capacity_),curr_size_(other.curr_size_), array_(new T[other.capacity_]){
     for(size_t i = 0; i < curr_size_; i ++) {
         array_[i] = other.array_[i];
     }
