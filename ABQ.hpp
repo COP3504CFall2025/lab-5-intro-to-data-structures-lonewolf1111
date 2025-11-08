@@ -68,18 +68,20 @@ T ABQ<T>::peek() const  {
 
 template <typename T>
 void ABQ<T>::enqueue(const T& data) {
-    // if(curr_size_ == capacity_) {
-    //     capacity_ *= scale_factor_;
-    //     T* temp = new T[capacity_];
-    //     for (size_t i = 0; i < curr_size_; i ++) {
-    //         temp[i] = array_[i];
-    //     }
-    //     delete[] array_;
-    //     array_ = temp;
-    //     temp = nullptr;
-    // }
-    
-    array_[curr_size_++] = data;
+    if(curr_size_ == capacity_) {
+        capacity_ *= scale_factor_;        
+        T* resizedArray = new T[capacity_];
+        for(size_t i = 0; i < curr_size_; i ++) {
+            resizedArray[i] = array_[i];
+        }
+        
+        delete[] array_;
+        array_ = resizedArray;
+        resizedArray = nullptr;
+        
+    }
+    array_[curr_size_] = data;
+    curr_size_ ++;
 }
 
 template <typename T>

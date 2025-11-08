@@ -20,11 +20,12 @@
 
 int main() {
 
-    ABS<int> x;
-    x.push(20);
-    x.push(30);
-    ABS<int> g = std::move(x);
-    std::cout << "bruzzo "<< g.peek() << std::endl;
+    ABQ<int> x;
+    x.enqueue(20);
+    x.enqueue(30);
+    x.enqueue(30);
+
+    std::cout << "bruzzo "<< x.getMaxCapacity() << std::endl;
     return 0;
 }
 
