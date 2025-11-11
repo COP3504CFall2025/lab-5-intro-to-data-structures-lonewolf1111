@@ -77,7 +77,7 @@ template <typename T>
 ABDQ<T>::ABDQ(const ABDQ<T>& other) {
     T* temporary = new T[other.capacity_];
     for(size_t i = 0; i < other.size_; i ++) {
-        temporary[i] = other[i];
+        temporary[i] = other.data_[i];
     }
     data_ = temporary;
     temporary = nullptr;
@@ -95,7 +95,7 @@ ABDQ<T>& ABDQ<T>::operator=(const ABDQ<T>& rhs) {
     T* temporary = new T[rhs.capacity_];
     
     for(size_t i = 0; i < rhs.size_; i ++) {
-        temporary[i] = rhs[i];
+        temporary[i] = rhs.data_[i];
     }
     data_ = temporary;
     temporary = nullptr;
