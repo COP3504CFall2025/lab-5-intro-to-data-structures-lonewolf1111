@@ -79,7 +79,7 @@ const T& ABDQ<T>::back() const{
 template <typename T>
 T ABDQ<T>::popBack() {
     if(size_ == 0) throw std::runtime_error("Empty Stack");
-    T back_element = data_[back-1];
+    T back_element = data_[back_-1];
     //can't use modulus cuz these values are unsigned
     if(back_ == 0) back_ = capacity_-1;
     else back_ --;
@@ -90,7 +90,7 @@ T ABDQ<T>::popBack() {
 template <typename T>
 T ABDQ<T>::popFront() {
     if(size_ == 0) throw std::runtime_error("Empty Stack");
-    T front_element = data_[front];
+    T front_element = data_[front_];
     front_ = (front_+1) % capacity_;
     size_--;
     return front_element;
