@@ -76,11 +76,11 @@ void ABDQ<T>::addMoreCapacity() {
         }
     } else {
         //from 0 to the back
-        size_t extra_size = capacity_ - array_.size();
+        size_t extra_size = capacity_ - data_.size();
         for(size_t i = 0; i < back_; i ++) {
             resizedArray[i] = data_[i];
         }
-        for(size_t i = front; i < array_.size(); i ++) {
+        for(size_t i = front; i < data_.size(); i ++) {
             resizedArray[i + extra_size]= data_[i];
         }
         front_ += extra_size;
