@@ -39,7 +39,11 @@ public:
     const T& back() const override;
 
     // Getters
-    std::size_t getSize() const noexcept override { return size_;};
+    std::size_t getSize() const noexcept override { return size_;}
+
+    
+    // Helper Function
+    void updateBackIndex();
 
 };
 
@@ -71,6 +75,66 @@ template <typename T>
 const T& ABDQ<T>::back() const{
     return data_[back_-1];
 }
+
+template <typename T>
+T ABDQ<T>::popBack() {
+    if(size_ == 0) throw std::runtime_error("Empty Stack");
+    T back_element = data_[back-1];
+    //can't use modulus cuz these values are unsigned
+    if(back_ == 0) back_ = capacity_-1;
+    else back_ --;
+    size_--;
+    return back_element;
+}
+
+template <typename T>
+T ABDQ<T>::popFront() {
+    if(size_ == 0) throw std::runtime_error("Empty Stack");
+    T front_element = data_[front];
+    front_ = (front_+1) % capacity_;
+    size_--;
+    return front_element;
+}
+
+template <typename T>
+void pushBack(const T& item) {
+    if(size_ == capacity_) {
+        capacity_ *= SCALE_FACTOR;        
+        T* resizedArray = new T[capacity_];
+        for(size_t i = 0; i < size_; i ++) {
+            resizedArray[i] = data_[i];
+        }
+        
+        delete[] data_;
+        data_ = resizedArray;
+        resizedArray = nullptr;
+    }
+    data_[back_] = item;
+    back_ = (back_+1) % capacity_;
+    size_ ++;
+}
+
+
+template <typename T>
+void pushFront(const T& item) {
+    if(size_ == capacity_) {
+        capacity_ *= SCALE_FACTOR;        
+        T* resizedArray = new T[capacity_];
+        for(size_t i = 0; i < size_; i ++) {
+            resizedArray[i] = data_[i];
+        }
+        
+        delete[] data_;
+        data_ = resizedArray;
+        resizedArray = nullptr;
+    }
+    if(front_ == 0) front_ = capacity_-1;
+    else front_ --;
+    data_[front] = item;
+    size_ ++;
+}
+
+
 
 // <------------------------------------- Big 5 shi -------------------------------------->
 template <typename T>
