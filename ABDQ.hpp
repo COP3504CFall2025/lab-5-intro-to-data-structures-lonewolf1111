@@ -97,7 +97,7 @@ T ABDQ<T>::popFront() {
 }
 
 template <typename T>
-void pushBack(const T& item) {
+void ABDQ<T>::pushBack(const T& item) {
     if(size_ == capacity_) {
         capacity_ *= SCALE_FACTOR;        
         T* resizedArray = new T[capacity_];
@@ -116,7 +116,7 @@ void pushBack(const T& item) {
 
 
 template <typename T>
-void pushFront(const T& item) {
+void ABDQ<T>::pushFront(const T& item) {
     if(size_ == capacity_) {
         capacity_ *= SCALE_FACTOR;        
         T* resizedArray = new T[capacity_];
