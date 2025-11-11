@@ -130,7 +130,7 @@ void ABDQ<T>::pushFront(const T& item) {
     }
     if(front_ == 0) front_ = capacity_-1;
     else front_ --;
-    data_[front] = item;
+    data_[front_] = item;
     size_ ++;
 }
 
