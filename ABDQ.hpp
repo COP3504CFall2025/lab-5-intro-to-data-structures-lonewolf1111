@@ -68,11 +68,13 @@ ABDQ<T>::ABDQ(std::size_t capacity) {
 
 template <typename T>
 const T& ABDQ<T>::front() const{
+    if (size_ == 0) throw std::runtime_error("empty queue");
     return data_[front_];
 }
 
 template <typename T>
 const T& ABDQ<T>::back() const{
+    if (size_ == 0) throw std::runtime_error("empty queue");
     return data_[back_-1];
 }
 
