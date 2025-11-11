@@ -67,6 +67,7 @@ ABDQ<T>::ABDQ(std::size_t capacity) {
 
 template <typename T>
 void ABDQ<T>::addMoreCapacity() {
+    size_t oldCapacity = capacity_;
     capacity_ *= SCALE_FACTOR;        
     T* resizedArray = new T[capacity_];
     //checks if it's circled or not
@@ -76,11 +77,11 @@ void ABDQ<T>::addMoreCapacity() {
         }
     } else {
         //from 0 to the back
-        std::size_t extra_size = capacity_ - data_.size();
+        std::size_t extra_size = capacity_ - oldCapacity;
         for(size_t i = 0; i < back_; i ++) {
             resizedArray[i] = data_[i];
         }
-        for(std::size_t i = front; i < data_.size(); i ++) {
+        for(size_t i = front_; i < oldCapacity; i ++) {
             resizedArray[i + extra_size]= data_[i];
         }
         front_ += extra_size;
