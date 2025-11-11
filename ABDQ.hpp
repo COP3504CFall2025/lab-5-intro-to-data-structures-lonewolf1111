@@ -42,8 +42,7 @@ public:
     std::size_t getSize() const noexcept override { return size_;}
 
     
-    // Helper Function
-    void updateBackIndex();
+    void addMoreCapacity();
 
 };
 
@@ -64,6 +63,32 @@ ABDQ<T>::ABDQ(std::size_t capacity) {
     front_ = 0;
     back_ = 0;
     data_ = new T[capacity_];
+}
+
+template <typename T>
+void ABDQ<T>::addMoreCapacity() {
+    capacity_ *= SCALE_FACTOR;        
+    T* resizedArray = new T[capacity_];
+    //checks if it's circled or not
+    if(front_ < back_) {
+        for(size_t i = 0; i < size_; i ++) {
+            resizedArray[i] = data_[i];
+        }
+    } else {
+        //from 0 to the back
+        size_t extra_size = capacity_ - array_.size();
+        for(size_t i = 0; i < back_; i ++) {
+            resizedArray[i] = data_[i];
+        }
+        for(size_t i = front; i < array_.size(); i ++) {
+            resizedArray[i + extra_size]= data_[i];
+        }
+        front_ += extra_size;
+    }
+    
+    delete[] data_;
+    data_ = resizedArray;
+    resizedArray = nullptr;
 }
 
 template <typename T>
@@ -100,17 +125,8 @@ T ABDQ<T>::popFront() {
 
 template <typename T>
 void ABDQ<T>::pushBack(const T& item) {
-    if(size_ == capacity_) {
-        capacity_ *= SCALE_FACTOR;        
-        T* resizedArray = new T[capacity_];
-        for(size_t i = 0; i < size_; i ++) {
-            resizedArray[i] = data_[i];
-        }
-        
-        delete[] data_;
-        data_ = resizedArray;
-        resizedArray = nullptr;
-    }
+    if(size_ == capacity_) addMoreCapacity();
+    
     data_[back_] = item;
     back_ = (back_+1) % capacity_;
     size_ ++;
@@ -119,17 +135,8 @@ void ABDQ<T>::pushBack(const T& item) {
 
 template <typename T>
 void ABDQ<T>::pushFront(const T& item) {
-    if(size_ == capacity_) {
-        capacity_ *= SCALE_FACTOR;        
-        T* resizedArray = new T[capacity_];
-        for(size_t i = 0; i < size_; i ++) {
-            resizedArray[i] = data_[i];
-        }
-        
-        delete[] data_;
-        data_ = resizedArray;
-        resizedArray = nullptr;
-    }
+    if(size_ == capacity_) addMoreCapacity();
+    
     if(front_ == 0) front_ = capacity_-1;
     else front_ --;
     data_[front_] = item;
