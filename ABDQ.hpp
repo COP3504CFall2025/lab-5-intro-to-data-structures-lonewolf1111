@@ -24,7 +24,7 @@ public:
     ABDQ(ABDQ&& other) noexcept;
     ABDQ& operator=(const ABDQ& other);
     ABDQ& operator=(ABDQ&& other) noexcept;
-    ~ABDQ() override;
+    ~ABDQ() ;
 
     // Insertion
     void pushFront(const T& item) override;
@@ -39,7 +39,7 @@ public:
     const T& back() const override;
 
     // Getters
-    std::size_t getSize() const noexcept override { return size_};
+    std::size_t getSize() const noexcept override { return size_;};
 
 };
 
@@ -69,14 +69,14 @@ const T& ABDQ<T>::front() const{
 
 template <typename T>
 const T& ABDQ<T>::back() const{
-    return data_[back-1];
+    return data_[back_-1];
 }
 
 // <------------------------------------- Big 5 shi -------------------------------------->
 template <typename T>
 ABDQ<T>::ABDQ(const ABDQ<T>& other) {
     T* temporary = new T[other.capacity_];
-    for(size_t = 0; i < other.size_; i ++) {
+    for(size_t i = 0; i < other.size_; i ++) {
         temporary[i] = other[i];
     }
     data_ = temporary;
@@ -94,7 +94,7 @@ ABDQ<T>& ABDQ<T>::operator=(const ABDQ<T>& rhs) {
     delete[] data_;
     T* temporary = new T[rhs.capacity_];
     
-    for(size_t = 0; i < rhs.size_; i ++) {
+    for(size_t i = 0; i < rhs.size_; i ++) {
         temporary[i] = rhs[i];
     }
     data_ = temporary;
@@ -110,7 +110,7 @@ ABDQ<T>& ABDQ<T>::operator=(const ABDQ<T>& rhs) {
 
 template <typename T>
 ABDQ<T>::ABDQ(ABDQ<T>&& other) noexcept : data_(other.data_), capacity_(other.capacity_), 
-    size_(other.size), front_(other.front_), back_(other.back_){
+    size_(other.size_), front_(other.front_), back_(other.back_){
         other.data_ = nullptr;
         other.capacity_ = 0;
         other.size_ = 0;
@@ -133,4 +133,15 @@ ABDQ<T>& ABDQ<T>::operator=(ABDQ<T>&& rhs) noexcept {
     rhs.size_ = 0;
     rhs.front_ = 0;
     rhs.back_ = 0;
+
+    return *this;
+}
+
+template <typename T>
+ABDQ<T>::~ABDQ() {
+    delete[] data_;
+    capacity_ = 0;
+    size_ = 0;
+    front_ = 0;
+    back_ = 0;
 }
