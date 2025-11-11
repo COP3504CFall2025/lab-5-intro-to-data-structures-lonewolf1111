@@ -101,7 +101,7 @@ T ABQ<T>::dequeue() {
 
     T temp = array_[0];
     curr_size_ --;
-    for(size_t i = 0; i < curr_size_-1; i ++) {
+    for(size_t i = 0; i < curr_size_; i ++) {
         array_[i] = array_[i+1];
     }
 
